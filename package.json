@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/KimDuclos/webapi-iii-challenge"
+    "url": "git+https://github.com/KimDuclos/webapi-iii-challenge"
   },
   "keywords": [
     "node",
