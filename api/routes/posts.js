@@ -4,13 +4,13 @@ const userDB = require('../../data/helpers/userDb');
 
 // POST === Crud === check if post contains contents
 router.post('/', async (req, res) => {
-  let { body: post } = req;
-  if (post.text === null) { // send error if provided post doesn't have any contents
+  let post = req.body;
+  if (post.user_id === null || post.text === null) { // send error if provided post doesn't have any contents
     return res.status(400).json({ errorMessage: 'Text is required for post.'});
   }
   try {
-    const user = await userDB.getById(id);
-    Boolean(user) ? res.status(201).json(await postDB.insert(post)) : 
+    const postResult = await postDB.insert(post);
+    Boolean(postResult) ? res.status(201).json(postResult) : 
       // send not found error if the user ID is not in database
       res.status(404).json({ errorMessage: 'User with this ID does not exist.' });
   } catch (error) { // catch all error
