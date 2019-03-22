@@ -1,3 +1,7 @@
+### Base URL
+
+https://webapi-iv-challenge-kd.herokuapp.com/
+
 ### Blog Post Schema
 
 ```js
